@@ -473,7 +473,8 @@
       .hero__sub,
       .hero__btns,
       .gallery__item::after,
-      .gallery__item img {
+      .gallery__item img,
+      .hero__scroll::after {
         transition: none !important;
         animation: none !important;
       }
@@ -808,7 +809,9 @@
   // Hero entrance
   window.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() =>
-      document.getElementById('hero').classList.add('hero--loaded')
+      requestAnimationFrame(() =>
+        document.getElementById('hero').classList.add('hero--loaded')
+      )
     );
   });
 
