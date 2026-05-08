@@ -1,0 +1,13 @@
+{
+  "name": "nuova-immagine-coiffeur",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Sito statico Nuova Immagine Coiffeur",
+  "scripts": {
+    "update-gallery": "node update-gallery.js"
+  },
+  "dependencies": {
+    "cloudinary": "^2.6.1",
+    "dotenv": "^16.4.7"
+  }
+}
