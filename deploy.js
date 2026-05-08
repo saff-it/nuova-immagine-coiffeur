@@ -23,6 +23,7 @@ async function fetchAllResources() {
     const res = await cloudinary.api.resources({
       resource_type: 'image',
       type:          'upload',
+      prefix:        'nuova-immagine-coiffeur/',
       max_results:   500,
       ...(nextCursor ? { next_cursor: nextCursor } : {}),
     });
