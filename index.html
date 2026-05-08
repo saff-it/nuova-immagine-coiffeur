@@ -62,8 +62,15 @@
       width:56px; height:1px;
       background:var(--gold);
       margin-bottom:40px;
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform 0.9s var(--ease);
     }
-    .divider--center { margin-left:auto; margin-right:auto; }
+    .divider--center {
+      margin-left:auto; margin-right:auto;
+      transform-origin:center;
+    }
+    .divider.visible { transform:scaleX(1); }
 
     .btn {
       display:inline-block;
@@ -812,9 +819,12 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 3) * 0.1 + 's';
+    if (!el.style.transitionDelay) {
+      el.style.transitionDelay = (i % 3) * 0.1 + 's';
+    }
     revealObs.observe(el);
   });
+  document.querySelectorAll('.divider').forEach(el => revealObs.observe(el));
 </script>
 
 </body>
