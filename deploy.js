@@ -9,7 +9,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const FOLDER   = 'clienti/nuova-immagine-coiffeur/';
+const FOLDER   = '';
+const EXCLUDE  = /^(cld-sample|sample|main-sample)/;
 const GRADIENT = 'linear-gradient(120deg, rgba(30,28,26,.88) 0%, rgba(30,28,26,.62) 65%, rgba(30,28,26,.35) 100%)';
 
 const MARKERS = {
@@ -27,11 +28,10 @@ async function fetchImages() {
     const res = await cloudinary.api.resources({
       resource_type: 'image',
       type:          'upload',
-      prefix:        FOLDER,
       max_results:   500,
       ...(nextCursor ? { next_cursor: nextCursor } : {}),
     });
-    results.push(...res.resources);
+    results.push(...res.resources.filter(r => !EXCLUDE.test(r.public_id)));
     nextCursor = res.next_cursor;
   } while (nextCursor);
   return results;
@@ -71,12 +71,11 @@ function galleryBlock(images) {
 
 async function main() {
   // ── 1. Cloudinary ──────────────────────────────────────────────
-  console.log(`\n📸  Leggo immagini da Cloudinary (${FOLDER})…`);
+  console.log(`\n📸  Leggo immagini da Cloudinary…`);
   const images = await fetchImages();
 
   if (images.length === 0) {
-    console.log(`\n    ❌ Nessuna immagine trovata in ${FOLDER}`);
-    console.log('    Carica le immagini su Cloudinary nella cartella indicata.');
+    console.log('\n    ❌ Nessuna immagine trovata su Cloudinary.');
     return;
   }
 
