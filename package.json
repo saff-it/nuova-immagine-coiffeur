@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "description": "Sito statico Nuova Immagine Coiffeur",
   "scripts": {
-    "update-gallery": "node update-gallery.js"
+    "update-gallery": "node update-gallery.js",
+    "deploy-with-images": "node deploy.js"
   },
   "dependencies": {
     "cloudinary": "^2.6.1",
