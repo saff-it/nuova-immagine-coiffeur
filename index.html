@@ -214,6 +214,19 @@
       100% { transform:scaleY(0); transform-origin:bottom; }
     }
 
+    /* Hero entrance */
+    .hero__eyebrow,
+    .hero__title,
+    .hero__sub,
+    .hero__btns {
+      opacity:0;
+      transition:opacity 1.2s var(--ease);
+    }
+    .hero--loaded .hero__eyebrow { opacity:1; transition-delay:0.3s; }
+    .hero--loaded .hero__title   { opacity:1; transition-delay:0.6s; }
+    .hero--loaded .hero__sub     { opacity:1; transition-delay:0.9s; }
+    .hero--loaded .hero__btns    { opacity:1; transition-delay:1.15s; }
+
     /* ─── Strip numerica ─────────────────────────────────────── */
     .strip { background:var(--anthr); padding:34px 0; }
     .strip__row {
@@ -756,6 +769,13 @@
 
 <!-- ═════════════════════════ JAVASCRIPT ═════════════════════════════════ -->
 <script>
+  // Hero entrance
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(() =>
+      document.getElementById('hero').classList.add('hero--loaded')
+    );
+  });
+
   // Navbar scroll
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 56);
