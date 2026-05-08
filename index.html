@@ -806,6 +806,10 @@
 
 <!-- ═════════════════════════ JAVASCRIPT ═════════════════════════════════ -->
 <script>
+  // Always start at top regardless of URL hash
+  if (history.scrollRestoration) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
   // Hero entrance
   window.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() =>
