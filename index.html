@@ -173,9 +173,9 @@
     }
     .hero__bg {
       position:absolute; inset:0;
-      background:
-        linear-gradient(120deg, rgba(30,28,26,.88) 0%, rgba(30,28,26,.62) 65%, rgba(30,28,26,.35) 100%),
-        url('https://res.cloudinary.com/dge5tnnsy/image/upload/v1778258050/Gemini_Generated_Image_wk9ff9wk9ff9wk9f_1_kmm8ht.png') center/cover no-repeat;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
     }
     .hero__content { position:relative; z-index:2; max-width:660px; }
     .hero__eyebrow {
@@ -253,7 +253,11 @@
     /* ─── Chi siamo ──────────────────────────────────────────── */
     .about { background:var(--cream-alt); padding:100px 0; }
     .about__grid { display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:center; }
-    .about__img-wrap { position:relative; }
+    .about__img-wrap {
+      position:relative;
+      min-height:540px;
+      background:var(--anthr);
+    }
     .about__img-wrap::before {
       content:''; position:absolute;
       top:-22px; left:-22px; right:22px; bottom:22px;
@@ -261,7 +265,7 @@
     }
     .about__img-wrap img {
       position:relative; z-index:1;
-      width:100%; height:580px; object-fit:cover;
+      width:100%; height:540px; object-fit:cover;
     }
     .about__badge {
       position:absolute; bottom:-18px; right:-18px; z-index:2;
@@ -321,9 +325,7 @@
 
     /* ─── CTA banner ─────────────────────────────────────────── */
     .cta-band {
-      background:
-        linear-gradient(rgba(30,28,26,.86), rgba(30,28,26,.86)),
-        url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1920&q=80') center/cover no-repeat fixed;
+      background: rgba(28,26,24,.98);
       padding:110px 0; text-align:center;
     }
     .cta-band .label  { color:var(--gold-light); }
@@ -435,6 +437,7 @@
       .strip__sep { display:none; }
     }
   </style>
+  <!-- HERO:START --><!-- HERO:END -->
 </head>
 <body>
 
@@ -575,10 +578,6 @@
     <div class="about__grid">
 
       <div class="about__img-wrap reveal">
-        <img
-          src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=900&q=80"
-          alt="Carmelo al lavoro nel salone Nuova Immagine Coiffeur"
-          loading="lazy">
         <div class="about__badge" aria-hidden="true">
           <strong>40</strong>
           <span>anni</span>
