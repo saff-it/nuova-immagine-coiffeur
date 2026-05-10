@@ -4,6 +4,8 @@ import type { CloudinaryResource } from '@/lib/cloudinary'
 export default function Gallery({ images }: { images: CloudinaryResource[] }) {
   const items = images.slice(0, 5)
 
+  if (items.length === 0) return null
+
   return (
     <section className="gallery" id="gallery">
       <div className="container">

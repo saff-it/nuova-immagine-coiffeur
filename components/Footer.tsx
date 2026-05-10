@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <span>© 2024 Nuova Immagine Coiffeur · Piazza Bonomelli 4, Milano</span>
+          <span>© {new Date().getFullYear()} Nuova Immagine Coiffeur · Piazza Bonomelli 4, Milano</span>
           <span className="gold">Dal 1984 · Milano</span>
         </div>
       </div>
