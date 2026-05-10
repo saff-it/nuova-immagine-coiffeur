@@ -8,19 +8,19 @@ export default function Navbar() {
 
   return (
     <>
+      <div className="nav__spacer" />
       <header className="nav">
-        <div className="container">
-          <div className="nav__inner">
+        <div className="nav__inner">
+          <div className="nav__left">
+            <button className="nav__burger" aria-label="Apri menu" onClick={openMenu}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" width="24" height="24">
+                <path fill="currentColor" fillRule="evenodd" d="M3 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1M3 10a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1M3 15a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1" clipRule="evenodd" />
+              </svg>
+            </button>
+            <div className="nav__sep-v" />
             <a href="#" className="nav__logo">Nuova Immagine Coiffeur</a>
-            <div className="nav__divider" />
-            <div className="nav__right">
-              <a href="tel:+3902537982" className="nav__phone">02 537982</a>
-              <a href="tel:+3902537982" className="btn-green">Prenota ora</a>
-              <button className="nav__burger" aria-label="Apri menu" onClick={openMenu}>
-                <span /><span /><span />
-              </button>
-            </div>
           </div>
+          <a href="tel:+3902537982" className="btn-nav">Prenota ora</a>
         </div>
       </header>
       <div className={`mob-menu${open ? ' open' : ''}`} role="dialog" aria-modal="true">
@@ -29,7 +29,7 @@ export default function Navbar() {
         <a href="#about" onClick={close}>Chi Siamo</a>
         <a href="#testi" onClick={close}>Recensioni</a>
         <a href="#orari" onClick={close}>Orari</a>
-        <a href="tel:+3902537982" className="btn-green" onClick={close}>Prenota ora</a>
+        <a href="tel:+3902537982" className="btn-nav" onClick={close}>Prenota ora</a>
       </div>
     </>
   )

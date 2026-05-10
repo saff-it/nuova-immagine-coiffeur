@@ -8,12 +8,10 @@ export default function Hero({ image }: { image: CloudinaryResource | null }) {
 
   return (
     <section className="hero" id="hero">
-      {bgUrl && (
-        <div className="hero__bg" style={{ backgroundImage: `url('${bgUrl}')` }} />
-      )}
+      {bgUrl && <div className="hero__bg" style={{ backgroundImage: `url('${bgUrl}')` }} />}
       <div className="hero__overlay" />
-      <div className="container">
-        <div className="hero__content">
+      <div className="hero__content">
+        <div className="hero__inner">
           <span className="hero__label">Salone da Parrucchiere</span>
           <h1 className="hero__h1">
             Bellezza sartoriale da quarant&apos;anni a Milano
@@ -23,7 +21,7 @@ export default function Hero({ image }: { image: CloudinaryResource | null }) {
             colore e trattamenti curati da mani esperte.
           </p>
           <div className="hero__btns">
-            <a href="tel:+3902537982" className="btn-green">Prenota un appuntamento</a>
+            <a href="tel:+3902537982" className="btn-mint">Prenota un appuntamento</a>
           </div>
         </div>
       </div>

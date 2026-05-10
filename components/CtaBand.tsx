@@ -1,15 +1,21 @@
 export default function CtaBand() {
   return (
-    <section className="cta-band" id="contatti">
+    <section className="prenota" id="contatti">
       <div className="container">
-        <span className="section__label" style={{ color: '#5AE8B3' }}>Prenota il tuo appuntamento</span>
-        <h2 className="cta-band__h2">Pronti a prenderci cura di te</h2>
-        <p className="cta-band__sub">
-          Chiamaci per fissare il tuo appuntamento. Siamo a tua disposizione dal martedì al sabato.
+        <h2 className="prenota__h2">Vieni a trovarci in Piazza Bonomelli 4</h2>
+        <p className="prenota__desc">
+          Contattaci per prenotare il tuo appuntamento o ricevere una consulenza
+          personalizzata sui nostri servizi.
         </p>
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="tel:+3902537982" className="btn-green">Prenota ora</a>
-          <a href="tel:+3902537982" className="btn-green-outline">02 537982</a>
+        <div className="prenota__btns">
+          <a href="tel:+3902537982" className="btn-grey">Chiama il salone</a>
+          <a
+            href="https://maps.google.com/?q=Piazza+Bonomelli+4+Milano"
+            target="_blank" rel="noopener noreferrer"
+            className="btn-ghost-dark"
+          >
+            Vieni a Trovarci
+          </a>
         </div>
       </div>
     </section>

@@ -14,22 +14,17 @@ export default function About({ image, gallery }: { image: CloudinaryResource | 
                 key={img.public_id}
                 src={img.public_id}
                 width={i === 0 ? 600 : 400}
-                height={i === 0 ? 480 : 220}
+                height={i === 0 ? 440 : 200}
                 alt={`Salone Nuova Immagine Coiffeur ${i + 1}`}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                format="auto"
-                quality="auto"
-                loading="lazy"
+                format="auto" quality="auto" loading="lazy"
               />
             ))}
-            {imgs.length < 2 && (
-              <div className="img-slot" style={{ background: '#F1FCF7' }} />
-            )}
+            {imgs.length < 2 && <div className="about__img-placeholder" />}
           </div>
-
           <div>
             <span className="section__label">Chi siamo</span>
-            <h2 className="section__h2">Passione e competenza nel cuore di Milano</h2>
+            <h2 className="section__h2">Passione e competenza<br />nel cuore di Milano</h2>
             <p className="section__desc">
               Nuova Immagine Coiffeur nasce dalla dedizione di Carmelo, che dal 1984 cura ogni
               cliente con attenzione artigianale e calore umano. Una storia di fiducia costruita

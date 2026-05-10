@@ -8,28 +8,32 @@ const reviews = [
 
 export default function Testimonianze() {
   return (
-    <section className="section section--alt" id="testi">
+    <section className="section" id="testi">
       <div className="container">
-        <div className="testi__intro">
-          <div>
+        <div className="testi__head">
+          <div className="testi__head-left">
             <span className="section__label">Quello che dicono le nostre clienti</span>
-            <h2 className="section__h2">La fiducia delle donne che si affidano a noi</h2>
-            <a href="tel:+3902537982" className="btn-green">Prenota il tuo appuntamento</a>
+            <h2 className="section__h2">La fiducia delle donne<br />che si affidano a noi</h2>
           </div>
-          <div>
-            <p className="testi__quote-text">
-              &ldquo;Da quarant&apos;anni Nuova Immagine Coiffeur costruisce relazioni durature
-              con le clienti, trasformando la cura dei capelli in un&apos;esperienza di benessere personale.&rdquo;
+          <div className="testi__head-right">
+            <p className="section__desc">
+              Da quarant&apos;anni Nuova Immagine Coiffeur costruisce relazioni durature con le clienti,
+              trasformando la cura dei capelli in un&apos;esperienza di benessere personale.
             </p>
+            <div>
+              <a href="tel:+3902537982" className="btn-ghost-dark">Prenota il tuo appuntamento</a>
+            </div>
           </div>
         </div>
         <div className="testi__grid">
           {reviews.map((r) => (
             <div key={r.name} className="testi-card">
-              <p className="testi-card__text">&ldquo;{r.text}&rdquo;</p>
+              <p className="testi-card__text">{r.text}</p>
               <div className="testi-card__footer">
-                <div className="testi-card__avatar">{r.name[0]}</div>
-                <span className="testi-card__name">{r.name}</span>
+                <div className="testi-card__author">
+                  <div className="testi-card__avatar">{r.name[0]}</div>
+                  <span className="testi-card__name">{r.name}</span>
+                </div>
               </div>
             </div>
           ))}

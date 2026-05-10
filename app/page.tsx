@@ -6,13 +6,12 @@ import Hero from '@/components/Hero'
 import Servizi from '@/components/Servizi'
 import Testimonianze from '@/components/Testimonianze'
 import About from '@/components/About'
-import InfoOrari from '@/components/InfoOrari'
 import CtaBand from '@/components/CtaBand'
+import InfoOrari from '@/components/InfoOrari'
 import Footer from '@/components/Footer'
 
 export default async function Home() {
   const images = await getSiteImages()
-
   return (
     <>
       <ScrollAnimations />
@@ -23,8 +22,8 @@ export default async function Home() {
         <Servizi />
         <Testimonianze />
         <About image={images.about} gallery={images.gallery} />
-        <InfoOrari />
         <CtaBand />
+        <InfoOrari />
       </main>
       <Footer />
     </>
