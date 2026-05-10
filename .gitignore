@@ -1,6 +1,25 @@
-.DS_Store
-.claude/
-.vercel
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# env files
 .env
-node_modules/
+.env.local
+.env.*.local
+
+# vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS
+.DS_Store
+
+# project-specific
+.claude/
 .superpowers/

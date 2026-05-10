@@ -1,14 +1,24 @@
 {
   "name": "nuova-immagine-coiffeur",
-  "type": "module",
   "version": "1.0.0",
-  "description": "Sito statico Nuova Immagine Coiffeur",
+  "private": true,
   "scripts": {
-    "update-gallery": "node update-gallery.js",
-    "deploy-with-images": "node deploy.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "cloudinary": "^2.6.1",
-    "dotenv": "^16.4.7"
+    "next": "^15.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next-cloudinary": "^6.16.0",
+    "cloudinary": "^2.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/node": "^22.0.0"
   }
 }
