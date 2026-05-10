@@ -1,71 +1,35 @@
 'use client'
-
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 56)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const openMenu = () => {
-    setMenuOpen(true)
-    document.body.style.overflow = 'hidden'
-  }
-  const closeMenu = () => {
-    setMenuOpen(false)
-    document.body.style.overflow = ''
-  }
+  const [open, setOpen] = useState(false)
+  const close = () => { setOpen(false); document.body.style.overflow = '' }
+  const openMenu = () => { setOpen(true); document.body.style.overflow = 'hidden' }
 
   return (
     <>
-      <header className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
+      <header className="nav">
         <div className="container">
           <div className="nav__inner">
-            <a href="#" className="nav__logo">
-              Nuova Immagine <em>Coiffeur</em>
-            </a>
-            <nav aria-label="Navigazione principale">
-              <ul className="nav__links">
-                <li><a href="#servizi">Servizi</a></li>
-                <li><a href="#about">Chi Siamo</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testi">Recensioni</a></li>
-                <li><a href="#orari">Orari</a></li>
-              </ul>
-            </nav>
-            <a href="tel:02537982" className="nav__cta">02 537982</a>
-            <button
-              className="nav__burger"
-              aria-label="Apri menu"
-              aria-expanded={menuOpen}
-              onClick={openMenu}
-            >
-              <span /><span /><span />
-            </button>
+            <a href="#" className="nav__logo">Nuova Immagine Coiffeur</a>
+            <div className="nav__divider" />
+            <div className="nav__right">
+              <a href="tel:+3902537982" className="nav__phone">02 537982</a>
+              <a href="tel:+3902537982" className="btn-green">Prenota ora</a>
+              <button className="nav__burger" aria-label="Apri menu" onClick={openMenu}>
+                <span /><span /><span />
+              </button>
+            </div>
           </div>
         </div>
       </header>
-
-      <div
-        className={`mob-menu${menuOpen ? ' open' : ''}`}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Menu mobile"
-      >
-        <button className="mob-menu__close" aria-label="Chiudi menu" onClick={closeMenu}>
-          ✕
-        </button>
-        <a href="#servizi" onClick={closeMenu}>Servizi</a>
-        <a href="#about"   onClick={closeMenu}>Chi Siamo</a>
-        <a href="#gallery" onClick={closeMenu}>Gallery</a>
-        <a href="#testi"   onClick={closeMenu}>Recensioni</a>
-        <a href="#orari"   onClick={closeMenu}>Orari</a>
-        <a href="tel:02537982" className="mob-menu__tel">02 537982</a>
+      <div className={`mob-menu${open ? ' open' : ''}`} role="dialog" aria-modal="true">
+        <button className="mob-menu__close" onClick={close}>✕</button>
+        <a href="#servizi" onClick={close}>Servizi</a>
+        <a href="#about" onClick={close}>Chi Siamo</a>
+        <a href="#testi" onClick={close}>Recensioni</a>
+        <a href="#orari" onClick={close}>Orari</a>
+        <a href="tel:+3902537982" className="btn-green" onClick={close}>Prenota ora</a>
       </div>
     </>
   )

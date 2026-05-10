@@ -1,37 +1,33 @@
 const services = [
-  {
-    icon: '✂',
-    name: 'Taglio Sartoriale',
-    text: "Dal taglio classico all'interpretazione più contemporanea. Ascoltiamo la tua personalità per creare una forma su misura che valorizzi i tuoi tratti unici.",
-  },
-  {
-    icon: '◈',
-    name: 'Colorazione Professionale',
-    text: 'Tinta piena e tecniche di colore selezionate. Colori vivi e luminosi realizzati con prodotti di alta qualità, rispettosi della struttura del capello.',
-  },
-  {
-    icon: '❧',
-    name: 'Piega e Styling',
-    text: 'Asciugatura professionale, piega liscia o ondulata. Un finish impeccabile per la quotidianità o per gli eventi che contano.',
-  },
+  { icon: '✂️', name: 'Taglio sartoriale', text: 'Tagli personalizzati che valorizzano i tuoi lineamenti e il tuo stile unico.' },
+  { icon: '🎨', name: 'Colorazione professionale', text: 'Colori brillanti e duraturi con trattamenti che mantengono la salute dei capelli.' },
+  { icon: '💇', name: 'Piega e styling', text: 'Acconciature curate con tecniche professionali per un risultato duraturo e elegante.' },
 ]
 
 export default function Servizi() {
   return (
-    <section className="servizi" id="servizi">
+    <section className="section" id="servizi">
       <div className="container">
-        <div className="servizi__head">
-          <span className="label">I Nostri Servizi</span>
-          <h2 className="title">Ogni dettaglio,<br /><em>curato per te</em></h2>
-          <div className="divider divider--center" />
+        <div className="servizi__top">
+          <div>
+            <span className="section__label">I nostri servizi</span>
+            <h2 className="section__h2">Tutto quello che serve<br />per la tua bellezza</h2>
+            <p className="section__desc">
+              Presso Nuova Immagine Coiffeur troverai una gamma completa di servizi pensati
+              per valorizzare la tua immagine con cura artigianale e professionalità.
+            </p>
+          </div>
+          <div style={{ paddingTop: '48px', flexShrink: 0 }}>
+            <a href="tel:+3902537982" className="btn-green">Prenota subito</a>
+          </div>
         </div>
         <div className="servizi__grid">
           {services.map((s) => (
-            <article key={s.name} className="serv-card reveal">
-              <span className="serv-card__ico" aria-hidden="true">{s.icon}</span>
+            <div key={s.name} className="serv-card">
+              <div className="serv-card__icon">{s.icon}</div>
               <h3 className="serv-card__name">{s.name}</h3>
               <p className="serv-card__text">{s.text}</p>
-            </article>
+            </div>
           ))}
         </div>
       </div>

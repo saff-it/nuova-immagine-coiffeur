@@ -1,46 +1,48 @@
 import { CldImage } from 'next-cloudinary'
 import type { CloudinaryResource } from '@/lib/cloudinary'
 
-export default function About({ image }: { image: CloudinaryResource | null }) {
+export default function About({ image, gallery }: { image: CloudinaryResource | null; gallery: CloudinaryResource[] }) {
+  const imgs = [image, ...gallery.slice(0, 2)].filter(Boolean) as CloudinaryResource[]
+
   return (
-    <section className="about" id="about">
+    <section className="section" id="about">
       <div className="container">
         <div className="about__grid">
-
-          <div className="about__img-wrap reveal">
-            {image ? (
+          <div className="about__img-grid">
+            {imgs.slice(0, 3).map((img, i) => (
               <CldImage
-                src={image.public_id}
-                width={900}
-                height={540}
-                alt="Salone Nuova Immagine Coiffeur"
-                style={{ width: '100%', height: '540px', objectFit: 'cover', position: 'relative', zIndex: 1 }}
+                key={img.public_id}
+                src={img.public_id}
+                width={i === 0 ? 600 : 400}
+                height={i === 0 ? 480 : 220}
+                alt={`Salone Nuova Immagine Coiffeur ${i + 1}`}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 format="auto"
                 quality="auto"
                 loading="lazy"
               />
-            ) : (
-              <div style={{ width: '100%', height: '540px', background: 'var(--anthr)', position: 'relative', zIndex: 1 }} />
+            ))}
+            {imgs.length < 2 && (
+              <div className="img-slot" style={{ background: '#F1FCF7' }} />
             )}
-            <div className="about__badge" aria-hidden="true">
-              <strong>40</strong>
-              <span>anni</span>
-            </div>
           </div>
 
-          <div className="about__text reveal">
-            <span className="label">La nostra storia</span>
-            <h2 className="title">Una tradizione<br />di <em>eccellenza</em></h2>
-            <div className="divider" />
-            <p>Era il 1984 quando Carmelo aprì le porte di Nuova Immagine Coiffeur in Piazza Bonomelli 4, portando a Milano una visione della cura del capello come forma d&apos;arte.</p>
-            <p>Quarant&apos;anni dopo, quella visione è rimasta intatta: ogni cliente viene accolto con attenzione individuale, ogni servizio viene eseguito con la precisione di chi ha affinato la propria tecnica in decenni di lavoro.</p>
-            <p>Non si tratta solo di tagliare o colorare i capelli. Si tratta di capire chi sei, come vuoi presentarti al mondo, e aiutarti a realizzarlo — con maestria, passione e rispetto.</p>
-            <div className="about__firma">
-              <p className="about__firma-name">Carmelo</p>
-              <p className="about__firma-role">Fondatore &amp; Master Stylist · dal 1984</p>
+          <div>
+            <span className="section__label">Chi siamo</span>
+            <h2 className="section__h2">Passione e competenza nel cuore di Milano</h2>
+            <p className="section__desc">
+              Nuova Immagine Coiffeur nasce dalla dedizione di Carmelo, che dal 1984 cura ogni
+              cliente con attenzione artigianale e calore umano. Una storia di fiducia costruita
+              nel tempo, dove la bellezza nasce dall&apos;ascolto e dall&apos;esperienza.
+            </p>
+            <div className="about__sub">
+              <div className="about__sub-icon">🏛️</div>
+              <div>
+                <span className="about__sub-title">Il Salone</span>
+                <span className="about__sub-text">Quattro Decenni nel quartiere Brenta</span>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
